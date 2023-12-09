@@ -7,5 +7,7 @@ set key outside
 set xrange [0:100]  # Adjust according to your simulation time
 plot "population.dat" using 1:2 with lines title "Susceptible", \
      "population.dat" using 1:3 with lines title "Infected", \
-     "population.dat" using 1:4 with lines title "Recovered"
+     "population.dat" using 1:4 with lines title "Recovered", \
+     "population.dat" using 1:5 with lines title "Dead HIV", \
+     "population.dat" using 1:6 with lines title "Dead with HIV"
 set output
