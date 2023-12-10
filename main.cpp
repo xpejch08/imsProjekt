@@ -122,7 +122,7 @@ int main(int argc, char *argv[]) {
 
 
 
-    Init(0, 3650);  // 100 time units
+    Init(0, 10);  // 100 time units
     SetStep(1e-6, 0.1);
     Run();
     return 0;
