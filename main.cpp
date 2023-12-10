@@ -74,20 +74,27 @@ std::vector<double> loadConditions(int x){
     double recovery_rate = 0.43;      // Gamma
 
     double initial_dead_hiv = 0; //0 dead for start
-    double mortality_rate_hiv = 0.0047; //mortality rate
+    double mortality_rate_hiv = 0.02906976744; //mortality rate HIV
 
     double initial_dead_all = 0; //0 dead for start
-    double mortality_rate_all = 0.0123; //mortality rate
+    double mortality_rate_all = 0.0053; //mortality rate
+    if(x==1) { //experiment 1, base case
+        mortality_rate_hiv = 0;
+        mortality_rate_all = 0;
+    }
 
-    if(x==2) { //experiment 2, just one infected
-        initial_infected = 1;// 1 infected
-        initial_susceptible = 999;
-    }
-    if(x==3) { //experiment 3, people tha don't know they have hiv
-        transmission_rate = 0.28;
-    }
-    if(x==4) { //experiment 4, people that know they have hiv
+    if(x==2) { //experiment 2, people that know they have hiv
         transmission_rate = 0.35;
+        mortality_rate_hiv = 0;
+        mortality_rate_all = 0;
+    }
+    if(x==3) { //experiment 3, people that don't know they have hiv
+        transmission_rate = 0.28;
+        mortality_rate_hiv = 0;
+        mortality_rate_all = 0;
+    }
+    if(x==4) { //experiment 4, updated recovery rate
+        recovery_rate = 0.48;
     }
 
     if(x==5) { //experiment 5, infecting half of the population
